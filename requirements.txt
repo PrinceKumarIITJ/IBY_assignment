@@ -1,7 +1,0 @@
-openai
-youtube-transcript-api
-transformers
-torch
-datasets
-streamlit
-scikit-learn

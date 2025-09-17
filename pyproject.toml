@@ -1,10 +1,26 @@
 [project]
-name = "iby-assignment"
+name = "latest_ai_development"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.11"
+description = "latest-ai-development using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
 dependencies = [
-    "crewai[tools]>=0.186.1",
+    "crewai[tools]>=0.186.1,<1.0.0",
+    "sentence-transformers>=5.1.0",
     "streamlit>=1.49.1",
+    "youtube-transcript-api>=1.2.2",
 ]
+
+[project.scripts]
+latest_ai_development = "latest_ai_development.main:run"
+run_crew = "latest_ai_development.main:run"
+train = "latest_ai_development.main:train"
+replay = "latest_ai_development.main:replay"
+test = "latest_ai_development.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

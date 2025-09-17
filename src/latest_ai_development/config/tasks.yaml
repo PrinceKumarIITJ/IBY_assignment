@@ -1,0 +1,114 @@
+routing_task:
+  description: >
+    Quickly analyze "{question}" and determine optimal parallel research strategy.
+    Select appropriate research approaches for concurrent execution:
+    - RAG analysis: For semantic PDF search (if documents are uploaded)
+    - Web research: For current information  
+    - Academic research: For scholarly sources
+    
+    Research depth: "{research_depth}"
+    
+    Provide concise routing decision for parallel execution.
+    
+  expected_output: >
+    Structured routing decision with tools, priority, reasoning, and strategy for parallel research execution.
+  
+  agent: router_agent
+
+rag_research_task:
+  description: >
+    PARALLEL TASK: Analyze uploaded PDFs for "{question}" using semantic search.
+    
+    Use PDF semantic search tools efficiently:
+    - Vectorstore similarity search
+    - Focus on key findings, methodologies, and data
+    
+    Be concise - this runs in parallel with web research.
+    
+  expected_output: >
+    Concise PDF analysis with key findings, methodologies, and relevant data extracted from documents.
+  
+  agent: rag_specialist
+
+web_research_task:
+  description: >
+    PARALLEL TASK: Research "{question}" using web sources
+    
+    Focus on:
+    - Recent developments (2024-2025)
+    - Authoritative sources and expert opinions
+    - Current trends and statistical data
+    
+    Use tools efficiently for parallel execution:
+    - SerperDevTool for targeted searches
+    - ArxivPaperTool for academic sources
+    
+    Be concise - this runs parallel with RAG analysis.
+    
+  expected_output: >
+    Focused web research findings with current information, expert insights, and credible sources.
+  
+  agent: web_researcher
+
+synthesis_task:
+  description: >
+    SYNTHESIS PHASE: Combine all parallel research results for "{question}"
+    
+    Integrate findings from:
+    - RAG semantic PDF analysis
+    - Web research findings
+    
+    Create comprehensive report with:
+    - Executive summary of key findings
+    - Synthesis of insights from all sources
+    - Identification of patterns and trends
+    - Clear conclusions and recommendations
+    
+    Research depth: "{research_depth}"
+    
+  expected_output: >
+    Comprehensive research report combining all parallel findings with clear structure, insights, and actionable conclusions.
+  
+  agent: synthesis_agent
+
+# ---------------- Agents ----------------
+
+router_agent:
+  role: >
+    Intelligent Query Router
+  goal: >
+    Analyze user queries and determine the optimal information retrieval strategy
+  backstory: >
+    You are an expert information architect with deep knowledge of various data sources.
+    You excel at understanding user intent and routing queries to the most appropriate
+    combination of tools for comprehensive research.
+
+rag_specialist:
+  role: >
+    RAG Knowledge Specialist  
+  goal: >
+    Extract and synthesize information from PDFs using semantic search
+  backstory: >
+    You are a specialist in retrieval-augmented generation with expertise in semantic
+    document analysis. You excel at finding relevant information from uploaded PDFs
+    through embeddings-based search.
+
+web_researcher:
+  role: >
+    Web Intelligence Researcher
+  goal: >
+    Gather current information from web sources and academic databases
+  backstory: >
+    You are a skilled web researcher with expertise in finding credible, up-to-date
+    information from various online sources including news, academic papers, and 
+    technical documentation.
+
+synthesis_agent:
+  role: >
+    Research Synthesis Expert
+  goal: >
+    Combine information from multiple sources into comprehensive, coherent reports
+  backstory: >
+    You are a research synthesis expert who excels at combining information from
+    diverse sources, identifying patterns, resolving conflicts, and creating
+    well-structured, comprehensive reports.

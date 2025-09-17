@@ -4,14 +4,10 @@ import warnings
 
 from datetime import datetime
 
-from multiagent.crew import Multiagent
+from latest_ai_development.crew import LatestAiDevelopment
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
 
 def run():
     """
@@ -19,11 +15,12 @@ def run():
     """
     inputs = {
         'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'current_year': str(datetime.now().year),
+        'question': 'What are the latest advancements in AI LLMs?'
     }
     
     try:
-        Multiagent().crew().kickoff(inputs=inputs)
+        LatestAiDevelopment().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -37,7 +34,7 @@ def train():
         'current_year': str(datetime.now().year)
     }
     try:
-        Multiagent().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        LatestAiDevelopment().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -47,7 +44,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        Multiagent().crew().replay(task_id=sys.argv[1])
+        LatestAiDevelopment().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -62,7 +59,7 @@ def test():
     }
     
     try:
-        Multiagent().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        LatestAiDevelopment().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
