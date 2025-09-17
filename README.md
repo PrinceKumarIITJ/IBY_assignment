@@ -66,6 +66,7 @@ python main.py
 
 ## 📂 Project Structure
 
+``` bash
 IBY_assignment/
 ├── .env.example             # Example environment variables
 ├── .gitignore               # Ignored files for Git
@@ -75,18 +76,21 @@ IBY_assignment/
 └── src/
     └── latest_ai_development/
         └── ...              # Source files & custom modules
+```
 
 ## 📊 Demo Output
 
 ### Here’s a sample run of the project:
 
-$ python main.py
-======================================
-   IBY Assignment - Execution Start
-======================================
+### $ python main.py
+### ======================================
+  ### IBY Assignment - Execution Start
+### ======================================
 
 Loading environment variables...
+
 Initializing modules...
+
 Running core logic...
 
 ✅ Process completed successfully!
