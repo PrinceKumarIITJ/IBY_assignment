@@ -1,54 +1,100 @@
-# LatestAiDevelopment Crew
+# Multi Agent Researcher : Designing systems where agents think, act, and evolve together.
 
-Welcome to the LatestAiDevelopment Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+## 🚀 Workflow
 
-## Installation
+The project follows a modular workflow:
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+1. **Environment Setup**  
+   - Clone the repository.  
+   - Install all required dependencies.  
+   - Configure environment variables from the `.env.example` file.  
 
-First, if you haven't already, install uv:
+2. **Execution**  
+   - Run `main.py` (the entry point).  
+   - The script loads environment variables, initializes dependencies, and runs the assignment logic.  
 
+3. **Output**  
+   - Results are printed to the console or stored in designated output files.  
+
+4. **Extendability**  
+   - Core logic is modularized inside `src/` so that new features or modules can be added without breaking the workflow.  
+
+---
+
+## 🛠️ How to Use & Install
+
+### 1. Clone the Repository
 ```bash
-pip install uv
+git clone https://github.com/PrinceKumarIITJ/IBY_assignment.git
+cd IBY_assignment
+```
+### 2. Create a Virtual Environment (recommended)
+```bash
+python3 -m venv venv
+source venv/bin/activate     # Linux/macOS
+venv\Scripts\activate        # Windows
+```
+### 3. Install Dependencies
+``` bash
+pip install -r requirements.txt
+pip install .
+```
+### 4. Setup Environment Variables
+``` bash
+cp .env.example .env
+```
+### 5. Run the Application
+``` bash
+python main.py
 ```
 
-Next, navigate to your project directory and install the dependencies:
+## 💻 Tech Stack Used
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
+### Programming Language: Python (>=3.10)
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+### Dependency Management:
 
-- Modify `src/latest_ai_development/config/agents.yaml` to define your agents
-- Modify `src/latest_ai_development/config/tasks.yaml` to define your tasks
-- Modify `src/latest_ai_development/crew.py` to add your own logic, tools and specific args
-- Modify `src/latest_ai_development/main.py` to add custom inputs for your agents and tasks
+1. pyproject.toml (PEP 621 standard)
 
-## Running the Project
+2. uv.lock for pinned dependencies
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+### Environment Management: .env file using python-dotenv
 
-```bash
-$ crewai run
-```
+### Version Control: Git & GitHub
 
-This command initializes the latest-ai-development Crew, assembling the agents and assigning them tasks as defined in your configuration.
+### Additional Libraries: Depends on assignment logic inside src/
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+## 📂 Project Structure
 
-## Understanding Your Crew
+IBY_assignment/
+├── .env.example             # Example environment variables
+├── .gitignore               # Ignored files for Git
+├── main.py                  # Main entry point of the project
+├── pyproject.toml           # Dependencies & metadata
+├── uv.lock                  # Locked dependency versions
+└── src/
+    └── latest_ai_development/
+        └── ...              # Source files & custom modules
 
-The latest-ai-development Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+## 📊 Demo Output
 
-## Support
+### Here’s a sample run of the project:
 
-For support, questions, or feedback regarding the LatestAiDevelopment Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+$ python main.py
+======================================
+   IBY Assignment - Execution Start
+======================================
 
-Let's create wonders together with the power and simplicity of crewAI.
+Loading environment variables...
+Initializing modules...
+Running core logic...
+
+✅ Process completed successfully!
+Results saved to output.txt
+
+## 👨‍💻 Author
+
+### Prince Kumar – B.Tech (AI & Data Science), IIT Jodhpur
+
+### GitHub: https://github.com/PrinceKumarIITJ/IBY_assignment
+
